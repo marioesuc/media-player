@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Media Player
+
+This project is a media player example that shows a list of most trending movies and series filtered out by genre. It has been bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
