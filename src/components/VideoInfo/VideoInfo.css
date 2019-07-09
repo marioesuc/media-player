@@ -6,5 +6,8 @@
 }
 
 .VideoInfo-description {
+  flex: 1;
+  height: 85%;
   color: black;
+  overflow: scroll;
 }

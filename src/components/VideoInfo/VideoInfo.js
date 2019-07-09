@@ -19,13 +19,6 @@ class VideoInfo extends React.Component {
             <li>Language</li>
             <li>Release date</li>
           </ul>
-          <h2>Description</h2>
-          <p>Description</p>
-          <h2>Metadata</h2>
-          <ul>
-            <li>Language</li>
-            <li>Release date</li>
-          </ul>
         </div>
         <Button onClick={this.handlePlayVideo} />
       </div>

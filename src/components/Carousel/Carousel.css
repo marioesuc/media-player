@@ -12,7 +12,6 @@
 .Carousel-list {
   display: flex;
   flex: 1;
-  height: 320px;
   flex-direction: row;
   overflow: scroll;
   padding: 10px;
