@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { create } from "apisauce";
 import "./HomeScreen.css";
+import Carousel from "../../components/Carousel/Carousel";
 
 const api = create({
   baseURL: "https://api.themoviedb.org",
@@ -55,13 +55,12 @@ class HomeScreen extends React.Component {
   render() {
     console.log(this.state);
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>HomeScreen</p>
-          <Link to={{ pathname: "VideoDetails", state: { test: "1234" } }}>
-            Learn React
-          </Link>
-        </header>
+      <div className="Home">
+        <h1>Media Player</h1>
+        <Carousel />
+        <Carousel />
+        <Carousel />
+        <Carousel />
       </div>
     );
   }

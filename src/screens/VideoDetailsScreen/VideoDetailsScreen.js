@@ -1,23 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./VideoDetailsScreen.css";
+import VideoInfo from "../../components/VideoInfo/VideoInfo";
+import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 
 class VideoDetailsScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: {}
+    };
+  }
+
   render() {
-    console.log(this.props);
+    const videoRef = React.createRef();
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>Video Details</p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="VideoDetails">
+        <Link className="link" to={{ pathname: "/", state: { test: "1234" } }}>
+          {"< Go back"}
+        </Link>
+        <h1>Título</h1>
+        <div className="VideoDetails-container">
+          <VideoInfo videoRef={videoRef} />
+          <VideoPlayer videoRef={videoRef} />
+        </div>
       </div>
     );
   }

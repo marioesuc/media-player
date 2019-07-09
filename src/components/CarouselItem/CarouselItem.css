@@ -1,0 +1,25 @@
+.CarouselItem-container {
+  height: auto;
+  padding: 15px;
+  background-color: gray;
+  text-align: center;
+  font-weight: bold;
+  margin: 0px 10px;
+}
+
+.CarouselItem-container:hover {
+  background-color: orange;
+}
+
+.CarouselItem-image {
+  width: 150px;
+}
+
+.CarouselItem-title {
+  margin-top: 20px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+}

@@ -1,0 +1,19 @@
+.Carousel-container {
+  color: white;
+  margin: 50px;
+  flex: 1;
+}
+
+.Carousel-box {
+  padding: 10px;
+  background-color: white;
+}
+
+.Carousel-list {
+  display: flex;
+  flex: 1;
+  height: 320px;
+  flex-direction: row;
+  overflow: scroll;
+  padding: 10px;
+}
