@@ -35,6 +35,7 @@ class VideoPlayer extends Component {
         <video
           ref={this.props.videoRef}
           width="100%"
+          height="100%"
           poster="//shaka-player-demo.appspot.com/assets/poster.jpg"
           controls
         />
