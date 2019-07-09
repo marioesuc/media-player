@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import shaka from "shaka-player";
+import muxjs from "mux.js";
 import "./VideoPlayer.css";
 
 var manifestUri =
-  "http://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-manifest.mpd";
+  "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8";
 
 class VideoPlayer extends Component {
   componentDidMount() {
-    console.log(this.props);
+    // Load Mux.js library that transmuxes the HLS segments into fMP4
+    window.muxjs = muxjs;
+
     shaka.polyfill.installAll();
 
     if (shaka.Player.isBrowserSupported()) {
