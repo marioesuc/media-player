@@ -16,7 +16,7 @@ class VideoDetailsScreen extends React.Component {
         <Link className="link" to={{ pathname: "/" }}>
           {"< Go back"}
         </Link>
-        <h1>{videoData.title}</h1>
+        <h1>{videoData.title || videoData.name}</h1>
         <div className="VideoDetails-container">
           <VideoInfo videoRef={videoRef} videoData={videoData} />
           <VideoPlayer
