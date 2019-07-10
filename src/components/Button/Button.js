@@ -1,6 +1,7 @@
 import React from "react";
 import "./Button.css";
 
+// Custom button component
 class Button extends React.Component {
   render() {
     const { onClick, text } = this.props;

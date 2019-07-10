@@ -4,10 +4,12 @@ import Carousel from "../../components/Carousel/Carousel";
 
 const API_KEY = "a16910bed086b5e775c155b974f13eae";
 
+// Main screen
 class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
 
+    // Initialize state
     this.state = {
       trendingMovies: [],
       trendingSeries: [],

@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import "./Carousel.css";
 import CarouselItem from "../CarouselItem/CarouselItem";
 
+// Constant for the base url that allows fetching images
 const IMG_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
+// Carousel that renders clickable videos' tiles
 class Carousel extends React.Component {
   render() {
     const { title, data } = this.props;

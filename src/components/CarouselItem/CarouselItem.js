@@ -1,6 +1,7 @@
 import React from "react";
 import "./CarouselItem.css";
 
+// Each video tile rendered in the carousel
 class CarouselItem extends React.Component {
   render() {
     const { title, imgSrc } = this.props;

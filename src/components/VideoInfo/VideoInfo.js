@@ -2,9 +2,13 @@ import React from "react";
 import "./VideoInfo.css";
 import Button from "../Button/Button";
 
+// Information associated to the video and play button
 class VideoInfo extends React.Component {
   handlePlayVideo = () => {
+    // Plays the video by pointint to its reference
     this.props.videoRef.current.play();
+
+    // Requests full screen mode after the video started
     this.props.videoRef.current.requestFullscreen();
   };
 
