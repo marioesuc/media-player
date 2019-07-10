@@ -5,25 +5,22 @@ import VideoInfo from "../../components/VideoInfo/VideoInfo";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 
 class VideoDetailsScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: {}
-    };
-  }
-
   render() {
     const videoRef = React.createRef();
+    const videoData = this.props.location.state.item;
 
     return (
       <div className="VideoDetails">
-        <Link className="link" to={{ pathname: "/", state: { test: "1234" } }}>
+        <Link className="link" to={{ pathname: "/" }}>
           {"< Go back"}
         </Link>
-        <h1>Título</h1>
+        <h1>{videoData.title}</h1>
         <div className="VideoDetails-container">
-          <VideoInfo videoRef={videoRef} />
-          <VideoPlayer videoRef={videoRef} />
+          <VideoInfo videoRef={videoRef} videoData={videoData} />
+          <VideoPlayer
+            videoRef={videoRef}
+            posterPath={videoData.backdrop_path}
+          />
         </div>
       </div>
     );

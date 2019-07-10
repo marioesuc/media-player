@@ -18,7 +18,7 @@ class Carousel extends React.Component {
               <Link
                 key={item.id}
                 className="link"
-                to={{ pathname: "VideoDetails", state: { test: "1234" } }}
+                to={{ pathname: "VideoDetails", state: { item } }}
               >
                 <CarouselItem
                   title={item.title || item.name}
@@ -34,3 +34,5 @@ class Carousel extends React.Component {
 }
 
 export default Carousel;
+
+export { IMG_BASE_URL };

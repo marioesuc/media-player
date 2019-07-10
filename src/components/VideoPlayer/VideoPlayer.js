@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import shaka from "shaka-player";
 import muxjs from "mux.js";
 import "./VideoPlayer.css";
+import { IMG_BASE_URL } from "../Carousel/Carousel";
 
 var manifestUri =
   "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8";
@@ -30,13 +31,14 @@ class VideoPlayer extends Component {
   }
 
   render() {
+    const { videoRef, posterPath } = this.props;
     return (
       <div className="VideoPlayer-container">
         <video
-          ref={this.props.videoRef}
+          ref={videoRef}
           width="100%"
           height="100%"
-          poster="//shaka-player-demo.appspot.com/assets/poster.jpg"
+          poster={`${IMG_BASE_URL}${posterPath}`}
           controls
         />
       </div>

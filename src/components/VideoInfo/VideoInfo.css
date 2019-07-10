@@ -7,8 +7,9 @@
 }
 
 .VideoInfo-description {
+  margin: 20px;
   flex: 1;
-  height: 85%;
+  height: 75%;
   color: black;
   overflow: scroll;
 }
