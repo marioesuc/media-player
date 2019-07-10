@@ -20,7 +20,7 @@ class VideoInfo extends React.Component {
             <li>Release date</li>
           </ul>
         </div>
-        <Button onClick={this.handlePlayVideo} />
+        <Button onClick={this.handlePlayVideo} text="Watch Movie" />
       </div>
     );
   }

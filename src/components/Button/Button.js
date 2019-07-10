@@ -3,9 +3,11 @@ import "./Button.css";
 
 class Button extends React.Component {
   render() {
+    const { onClick, text } = this.props;
+
     return (
-      <div onClick={() => this.props.onClick()} className="Button-container">
-        <div className="Button-content">Play video</div>
+      <div onClick={() => onClick()} className="Button-container">
+        <div className="Button-content">{text}</div>
       </div>
     );
   }

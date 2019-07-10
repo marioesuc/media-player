@@ -1,6 +1,19 @@
 body {
-  background-color: black;
+  background: rgb(18, 18, 59);
+  background: linear-gradient(
+    0deg,
+    rgba(18, 18, 59, 1) 0%,
+    rgba(36, 85, 94, 1) 100%
+  );
+  background-attachment: fixed;
   color: white;
+}
+
+h1 {
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid white;
+  width: 45%;
 }
 
 .Home {

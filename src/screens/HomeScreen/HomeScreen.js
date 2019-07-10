@@ -1,66 +1,90 @@
 import React from "react";
-import { create } from "apisauce";
 import "./HomeScreen.css";
 import Carousel from "../../components/Carousel/Carousel";
 
-const api = create({
-  baseURL: "https://api.themoviedb.org",
-  headers: { Accept: "application/vnd.github.v3+json" }
-});
-
 const API_KEY = "a16910bed086b5e775c155b974f13eae";
-
-const doRequest = async (url, apiKey, params) => {
-  return await api
-    .get(`${url}?api_key=${apiKey}${params || ""}`)
-    .catch(error => console.log(error));
-};
 
 class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      data: {}
+      trendingMovies: [],
+      trendingSeries: [],
+      family: [],
+      documentaries: []
     };
   }
 
   componentDidMount() {
-    this.loadInitialData();
+    // Fetch trending movies
+    fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`)
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            trendingMovies: result.results
+          });
+        },
+        error => console.log(error)
+      );
+
+    // Fetch trending series
+    fetch(`https://api.themoviedb.org/3/trending/tv/day?api_key=${API_KEY}`)
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            trendingSeries: result.results
+          });
+        },
+        error => console.log(error)
+      );
+
+    // Fetch genre family
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=10751`
+    )
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            family: result.results
+          });
+        },
+        error => console.log(error)
+      );
+
+    // Fetch genre documentary
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=99`
+    )
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            documentaries: result.results
+          });
+        },
+        error => console.log(error)
+      );
   }
 
-  loadInitialData = () => {
-    const data = {};
-
-    doRequest("/3/trending/movie/day", API_KEY).then(
-      response => (data.trendingMovies = response.data.results)
-    );
-
-    doRequest("/3/trending/tv/day", API_KEY).then(
-      response => (data.trendingSeries = response.data.results)
-    );
-    doRequest(
-      "/3/discover/movie",
-      API_KEY,
-      "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=10751"
-    ).then(response => (data.family = response.data.results));
-    doRequest(
-      "/3/discover/movie",
-      API_KEY,
-      "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=99"
-    ).then(response => (data.documentary = response.data.results));
-
-    this.setState({ data });
-  };
-
   render() {
-    console.log(this.state);
+    const {
+      trendingMovies,
+      trendingSeries,
+      family,
+      documentaries
+    } = this.state;
+
     return (
       <div className="Home">
         <h1>Media Player</h1>
-        <Carousel />
-        <Carousel />
-        <Carousel />
-        <Carousel />
+        <Carousel title="Popular Movies" data={trendingMovies} />
+        <Carousel title="Popular TV Series" data={trendingSeries} />
+        <Carousel title="Family" data={family} />
+        <Carousel title="Documentaries" data={documentaries} />
       </div>
     );
   }

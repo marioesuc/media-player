@@ -1,10 +1,11 @@
 .CarouselItem-container {
   height: auto;
   padding: 15px;
-  background-color: gray;
+  background-color: rgba(34, 46, 68, 0.5);
   text-align: center;
   font-weight: bold;
   margin: 0px 10px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .CarouselItem-container:hover {

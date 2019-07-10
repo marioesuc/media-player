@@ -3,14 +3,12 @@ import "./CarouselItem.css";
 
 class CarouselItem extends React.Component {
   render() {
+    const { title, imgSrc } = this.props;
+
     return (
       <div className="CarouselItem-container">
-        <img
-          alt="Cover"
-          className="CarouselItem-image"
-          src="https://image.tmdb.org/t/p/w500/w9kR8qbmQ01HwnvK4alvnQ2ca0L.jpg"
-        />
-        <div className="CarouselItem-title">Prueba</div>
+        <img alt="Cover" className="CarouselItem-image" src={imgSrc} />
+        <div className="CarouselItem-title">{title}</div>
       </div>
     );
   }
