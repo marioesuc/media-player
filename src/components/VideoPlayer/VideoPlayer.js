@@ -20,7 +20,7 @@ class VideoPlayer extends Component {
     if (shaka.Player.isBrowserSupported()) {
       this.initPlayer();
     } else {
-      alert("Browser not compatible");
+      console.log("Browser not compatible");
     }
   }
 
